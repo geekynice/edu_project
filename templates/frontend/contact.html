@@ -1,0 +1,82 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block title %}Nice Edu | Contact{% endblock title %}
+
+{% block content %}
+<style>
+    header
+    {
+        background-image: url(../static/images/contact.png);
+        background-attachment: fixed;
+    }
+</style>
+<header>
+    <div class="container">
+        <div class="next-header-content">
+            <h2>Contact Us</h2>
+            <div class="page-links">
+                <p><a href="{% url '' %}">Home</a><small>></small>Contact</p>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="contact">
+  <div class="container my-5">
+      <div class="main-form">
+          <h3 class="text-center">Contact <span>Now</span></h3>
+          {% for msg in messages %}
+            <div class="alert alert-success" role="alert">
+                <strong>Hey!</strong> {{msg}}
+            </div>
+          {% endfor %}
+          <div class="d-flex justify-content-between">
+              <form method="post">
+                  {% csrf_token %}
+                  <label for="name">Full Name :</label><br>
+                  <input type="text" placeholder="Enter your full name" name="name" id="name" required><br>
+                  <label for="email">Email :</label><br>
+                  <input type="email" placeholder="Enter your email" name="email" id="email" required><br>
+                  <label for="number">Contact number :</label><br>
+                  <input type="" placeholder="Enter your number" name="number" id="number" required><br>
+                  <label for="message">Enquiry :</label><br>
+                  <textarea name="message" id="message" required></textarea><br>
+                  <button href="" class="mt-5 cta-main text-center">Submit</button>
+              </form>
+              <div class="contact-info">
+                  <h4>Contact <span>Info</span></h4>
+                  <div class="d-flex align-items-center">
+                      <i class="fas fa-phone-alt"></i>
+                      <div class="c-info">
+                          <small>Contact Number</small>
+                          <p>+977-9847751121</p>
+                      </div>
+                  </div>
+                  <div class="d-flex align-items-center">
+                      <i class="fas fa-envelope"></i>
+                      <div class="c-info">
+                          <small>Mail us at</small>
+                          <p>niceedu@gmail.com</p>
+                      </div>
+                  </div>
+                  <div class="d-flex align-items-center">
+                      <i class="fas fa-map-marker-alt"></i>
+                      <div class="c-info">
+                          <small>We're located at:</small>
+                          <p>Kathmandu, Nepal</p>
+                      </div>
+                  </div>
+                  <div class="d-flex align-items-center">
+                      <i class="fas fa-globe"></i>
+                      <div class="c-info">
+                          <small>Find us at:</small>
+                          <p>niceedu.com</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+</div>
+{% endblock content %}

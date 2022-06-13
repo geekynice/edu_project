@@ -1,0 +1,139 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block title %}Nice Edu | Courses{% endblock title %}
+
+{% block content %}
+<style>
+    header
+    {
+        background-image: url(../static/images/courses.png);
+        background-attachment: fixed;
+    }
+    .courses-card
+    {
+        margin-bottom: 44px!important;
+        width: 90%!important;
+        margin: auto;
+        box-shadow: 0px 3px 10px 0px rgb(0 0 0 / 21%)!important;
+    }
+    .carousel .owl-nav button.owl-prev, .carousel .owl-nav button.owl-next
+    {
+      font-size: 29px;
+      background: #253C78;
+      padding: 2px 20px!important;
+      border-radius: 50%;
+      color: #fff;
+      margin: 0 10px;
+      position: absolute;
+      top: -28px;
+      right: 15px;
+    }
+    .carousel .owl-nav button.owl-prev
+    {
+      right: 72px;
+    }
+</style>
+<header>
+    <div class="container">
+        <div class="next-header-content">
+            <h2>Courses</h2>
+            <div class="page-links">
+                <p><a href="{% url '' %}">Home</a><small>></small>Courses</p>
+            </div>
+        </div>
+    </div>
+</header>
+<section class="courses">
+  <h2 class="text-center pb-5">Courses <span>Offered</span></h2>
+  <div class="container">
+      <div class="owl-carousel carousel">
+          <div class="">
+              <div class="courses-card">
+                  <img src="{% static 'images/physics.png' %}" class="course-image">
+                  <div class="middle">
+                      <a href="{% url 'courses-inner' %}" class="cta-main px-5">Apply Now</a>
+                  </div>
+                  <div class="course-card-content">
+                      <h5>Physics & Mathematics</h5>
+                  <div class="rate d-flex justify-content-between">
+                      <div class="ratings d-flex">
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                      </div>
+                      <span class="grad">20k+ graduated</span>
+                  </div>
+                  <p class="price">Starting from 20k/year</p>
+                  </div>
+              </div>
+              <div class="courses-card">
+                  <img src="{% static 'images/physics.png' %}" class="course-image">
+                  <div class="middle">
+                      <a href="{% url 'courses-inner' %}" class="cta-main px-5">Apply Now</a>
+                  </div>
+                  <div class="course-card-content">
+                      <h5>Physics & Mathematics</h5>
+                  <div class="rate d-flex justify-content-between">
+                      <div class="ratings d-flex">
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                      </div>
+                      <span class="grad">20k+ graduated</span>
+                  </div>
+                  <p class="price">Starting from 20k/year</p>
+                  </div>
+              </div>
+          </div>
+          <div class="">
+              <div class="courses-card">
+                  <img src="{% static 'images/physics.png' %}" class="course-image">
+                  <div class="middle">
+                      <a href="{% url 'courses-inner' %}" class="cta-main px-5">Apply Now</a>
+                  </div>
+                  <div class="course-card-content">
+                      <h5>Physics & Mathematics</h5>
+                  <div class="rate d-flex justify-content-between">
+                      <div class="ratings d-flex">
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                      </div>
+                      <span class="grad">20k+ graduated</span>
+                  </div>
+                  <p class="price">Starting from 20k/year</p>
+                  </div>
+              </div>
+              <div class="courses-card">
+                  <img src="{% static 'images/physics.png' %}" class="course-image">
+                  <div class="middle">
+                      <a href="{% url 'courses-inner' %}" class="cta-main px-5">Apply Now</a>
+                  </div>
+                  <div class="course-card-content">
+                      <h5>Physics & Mathematics</h5>
+                  <div class="rate d-flex justify-content-between">
+                      <div class="ratings d-flex">
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                      </div>
+                      <span class="grad">20k+ graduated</span>
+                  </div>
+                  <p class="price">Starting from 20k/year</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+{% endblock content %}

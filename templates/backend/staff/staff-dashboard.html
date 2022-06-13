@@ -1,0 +1,26 @@
+{% extends 'core/staff-core.html' %}
+
+{% load static %}
+
+{% block title %}Dashboard{% endblock title %}
+
+{% block content %}
+    <div class="data bg-light bg-gradient">
+        {% for msg in messages %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Hey {{user.username}}!</strong> {{msg}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+        <h2 class="pb-3">Task Assigned</h2>
+        {% for info in assignment %}
+            <div class="homework bg-dark p-4 text-white mb-3">
+                <h3>{{info.title}}</h3>
+                <p>{{info.description}}</p>
+                <span>Date posted : {{info.date_posted}}</span><br>
+                <span>Deadline : {{info.deadline}}</span>
+                <a class="btn btn-danger" href="{% url 'delete-assignment' id=info.id %}">Delete</a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock content %}

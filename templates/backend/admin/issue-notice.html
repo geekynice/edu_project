@@ -1,0 +1,23 @@
+{% extends 'core/admin-core.html' %}
+
+{% load static %}
+
+{% block title %}Issue Notice{% endblock title %}
+
+{% block content %}
+    <div class="data bg-light bg-gradient">
+        <h3 class="text-center pb-3">Issue Notice</h3>
+        <form method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+            <label for="title" class="form-label">Enter title</label>
+            <input type="text" class="form-control" id="title" name="title" required placeholder="Enter title for notice">
+            </div>
+            <div class="mb-3">
+            <label for="description" class="form-label">Password</label>
+            <textarea type="text" class="form-control" id="description" name="description" rows="10" style="resize: none;" required placeholder="Enter description for notice"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Issue Notice</button>
+        </form>
+    </div>
+{% endblock content %}

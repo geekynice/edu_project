@@ -1,0 +1,74 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://kit.fontawesome.com/84e75a1ab5.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>{% block title %}{% endblock title %}</title>
+  </head>
+  <body>
+    <div class="d-flex justify-content-between">
+      <div class="sidebar d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px;">
+            {% if user.is_authenticated %}
+              <span class="fs-4">Welcome {{user.first_name}}</span>
+            {% else %}
+              Login
+            {% endif %}
+          <hr>
+          <ul class="nav nav-pills flex-column mb-auto">
+            <li class="nav-item">
+              <a href="{% url 'staff-dashboard' %}" class="nav-link text-white active"><i class="fas fa-home"></i>Dashboard</a>
+            </li>
+            <li>
+              <a href="{% url 'staff-profile' id=user.id %}" class="nav-link text-white"><i class="fas fa-user"></i>My Profile</a>
+            </li>
+            <li>
+              <a href="{% url 'provide-assignment' %}" class="nav-link text-white"><i class="fab fa-wpforms"></i>Manage Assigments</a>
+            </li>
+            <li>
+              <a href="#" class="nav-link text-white"><i class="fas fa-user-graduate"></i>Admin's Message</a>
+            </li>
+            <li>
+              <a href="{% url 'notice' %}" class="nav-link text-white"><i class="fas fa-exclamation-circle"></i>Notice</a>
+            </li>
+          </ul>
+          <hr>
+          <div class="dropdown">
+            <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="{% static 'images/prof.jpeg' %}" alt="" width="32" height="32" class="rounded-circle me-2">
+              <strong>My Profile</strong>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+              <li><a class="dropdown-item" href="#">New project...</a></li>
+              <li><a class="dropdown-item" href="#">Settings</a></li>
+              <li><a class="dropdown-item" href="#">Profile</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="{% url 'logout' %}">Sign out</a></li>
+            </ul>
+          </div>
+      </div>
+      {% block content %}
+
+      {% endblock content %}
+    </div>
+    <script type="text/javascript">
+      const currentLocation = location.href;
+      const menuItem = document.querySelectorAll('ul li a');
+      const menuLength = menuItem.length
+      for (let i = 0; i<menuLength; i++)
+      {
+        if(menuItem[i].href === currentLocation){
+          menuItem[i].className = 'active'
+        }
+        else{
+          menuItem[i].className = 'inactive'
+        }
+      }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </body>
+</html>

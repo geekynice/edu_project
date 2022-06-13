@@ -1,0 +1,21 @@
+{% extends 'core/student-core.html' %}
+
+{% load static %}
+
+{% block title %}Dashboard{% endblock title %}
+
+{% block content %}
+<div class="data bg-light bg-gradient">
+    {% if not notice %}
+        <h1>No Notice</h1>
+    {% else %}
+        {% for info in notice %}
+            <div class="p-4 mb-3 homework bg-dark text-white">
+                <h3>{{info.title}}</h3>
+                <p>{{info.description}}</p>
+                <span class="text-muted">Date posted : {{info.date_posted}}</span><br>
+            </div>
+        {% endfor %}
+    {% endif %}
+</div>
+{% endblock content %}

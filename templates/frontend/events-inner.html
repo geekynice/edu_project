@@ -1,0 +1,122 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block title %}Nice Edu | Events{% endblock title %}
+
+{% block content %}
+<style>
+    header
+    {
+        background-image: url(../static/images/ethical.png);
+        background-attachment: fixed;
+    }
+</style>
+<header>
+    <div class="container">
+        <div class="next-header-content">
+            <h2>Physics & Mathematics</h2>
+            <div class="page-links">
+                <p><a href="{% url 'courses' %}">Courses</a><small>></small>Physics & Mathematics</p>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="events-inner">
+    <div class="container">
+      <h2 class="pb-5">Overview on <span>Ethical Hacking</span></h2>
+      <div class="container d-flex justify-content-between">
+          <div class="course-inner-content">
+              <span class="course-desc">StudyPress is clean, modern and unique HTML5 template that has beautiful design and unique features. This will be the best suited for your educational purpose website like university, college, school, kindergarten, online courses, blog, academy, courses, education, education center, education HTML, tuition, tutoring, business, events, institute, learning, teacher and much more.</span>
+              <h3 class="py-5">Workshop <span>By :</span></h3>
+              <div class="d-flex align-items-center">
+                  <img src="{% static 'images/kevin.png' %}" alt="">
+                  <div class="p-info">
+                      <h5>Kevin <span>Mitnick</span></h5>
+                      <small>Famous <span>Ethical Hacker</span></small>
+                  </div>
+              </div>
+          </div>
+          <img src="{% static 'images/physics-cover.png' %}" alt="">
+      </div>
+      <div class="container">
+          <div class="course-inner-content core d-flex align-items-center justify-content-between">
+              <div class="">
+                  <h4>Core Syllabus</h4>
+                  <p><small><i class="fas fa-arrow-right"></i></small> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                  <p><small><i class="fas fa-arrow-right"></i></small> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                  <p><small><i class="fas fa-arrow-right"></i></small> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                  <p><small><i class="fas fa-arrow-right"></i></small> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+              </div>
+              <div class="events-cred">
+                  <div class="d-flex align-items-center">
+                      <i class="fas fa-calendar"></i>
+                      <h5>25th Dec, 2022</h5>
+                  </div>
+                  <div class="d-flex align-items-center">
+                      <i class="fas fa-map-marker-alt"></i>
+                      <h5>Nice Edu Hall</h5>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="container">
+          <div class="main-form">
+              <h3 class="text-center">Apply <span>Now</span></h3>
+                {% for msg in messages %}
+                    <div class="alert alert-success" role="alert">
+                        <strong>Hey!</strong> {{msg}}
+                    </div>
+                {% endfor %}
+              <div class="d-flex justify-content-between">
+                  <form action="" method="post">
+                      {% csrf_token %}
+                      <label for="name">Full Name :</label><br>
+                      <input type="text" placeholder="Enter your full name" name="name" id="name" required><br>
+                      <label for="email">Email :</label><br>
+                      <input type="email" placeholder="Enter your email" name="email" id="email" required><br>
+                      <label for="event">Events choosen :</label><br>
+                      <input type="text" name="event" id="event" required><br>
+                      <label for="number">Contact number :</label><br>
+                      <input type="" placeholder="Enter your number" name="number" id="number" required><br>
+                      <label for="message">Enquiry :</label><br>
+                      <textarea name="message" id="message" required></textarea><br>
+                      <button href="" class="mt-5 cta-main text-center">Submit</button>
+                  </form>
+                  <div class="contact-info">
+                      <h4>Contact <span>Info</span></h4>
+                      <div class="d-flex align-items-center">
+                          <i class="fas fa-phone-alt"></i>
+                          <div class="c-info">
+                              <small>Contact Number</small>
+                              <p>+977-9847751121</p>
+                          </div>
+                      </div>
+                      <div class="d-flex align-items-center">
+                          <i class="fas fa-envelope"></i>
+                          <div class="c-info">
+                              <small>Mail us at</small>
+                              <p>niceedu@gmail.com</p>
+                          </div>
+                      </div>
+                      <div class="d-flex align-items-center">
+                          <i class="fas fa-map-marker-alt"></i>
+                          <div class="c-info">
+                              <small>We're located at:</small>
+                              <p>Kathmandu, Nepal</p>
+                          </div>
+                      </div>
+                      <div class="d-flex align-items-center">
+                          <i class="fas fa-globe"></i>
+                          <div class="c-info">
+                              <small>Find us at:</small>
+                              <p>niceedu.com</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+</div>
+{% endblock content %}

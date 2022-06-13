@@ -1,0 +1,30 @@
+{% extends 'core/student-core.html' %}
+
+{% load static %}
+
+{% block title %}My Profile{% endblock title %}
+
+{% block content %}
+<div class="data bg-light bg-gradient">
+    <h2 class=" pb-3">Notice!!!</h2>
+    {% for info in notice %}
+        <div class="homework bg-dark text-white p-4 mb-3">
+            <h2>{{user.is_staff}}</h2>
+            {% if user.is_superuser %}
+                <h2>{{info.title}}</h2>
+                <p>{{info.description}}</p>
+                <span class="text-muted">Date posted : {{info.date_posted}}</span>
+                <a href="" class="btn btn-danger">Delete</a>
+            {% elif user.is_staff %}
+                <h2>{{info.title}}</h2>
+                <p>{{info.description}}</p>
+                <span class="text-muted">Date posted : {{info.date_posted}}</span>
+            {% else %}
+                <h2>{{info.title}}</h2>
+                <p>{{info.description}}</p>
+                <span class="text-muted">Date posted : {{info.date_posted}}</span>
+            {% endif %}
+        </div>
+    {% endfor %}
+</div>
+{% endblock content %}

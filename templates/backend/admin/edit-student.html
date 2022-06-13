@@ -1,0 +1,54 @@
+{% extends 'core/admin-core.html' %}
+
+{% load static %}
+
+{% block title %}{% endblock title %}
+
+{% block content %}
+<div class="data">
+  <h3 class="text-center pb-2">Add Student</h3>
+  <form method="post" class="bg-light p-3">
+    {% csrf_token %}
+      <div class="mb-3">
+        <label for="first_name" class="form-label">Enter First Name:</label>
+        <input type="text" name="first_name" class="form-control" id="first_name" value="{{student.user.first_name}}">
+      </div>
+      <div class="mb-3">
+          <label for="last_name" class="form-label">Enter Last Name:</label>
+          <input type="text" name="last_name" class="form-control" id="last_name" value="{{student.user.last_name}}">
+        </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email address:</label>
+        <input type="email" name="email" class="form-control" id="email" value="{{student.user.email}}" >
+      </div>
+      <div class="mb-3">
+          <label for="number" class="form-label">Contact Number:</label>
+          <input type="text" name="number" class="form-control" id="number"  value="{{student.number}}">
+      </div>
+      <div class="mb-3">
+          <label for="parents_name" class="form-label">Parent's Name:</label>
+          <input type="text" name="parents_name" class="form-control" id="parents_name"  value="{{student.parents_name}}">
+      </div>
+      <div class="mb-3">
+          <label for="blood_group" class="form-label">Blood Group:</label>
+          <select class="form-select" name="blood_group" id="blood_group"  value="{{student.blood_group}}">
+            Blood Group
+              <option value="A +">A+</option>
+              <option value="B +">B+</option>
+              <option value="AB +">AB+</option>
+              <option value="O +">O+</option>
+              <option value="O -">O-</option>
+            </select>
+      </div>
+      <div class="mb-3">
+          <label for="prof" class="form-label">Choose Profile pic:</label>
+          <input type="file" name="prof" class="form-control" id="prof"  value="{{student.prof}}">
+      </div>
+      <div class="mb-3">
+          <label for="username" class="form-label">Username:</label>
+          <input type="text" name="username" class="form-control" id="username"  value="{{student.user.username}}">
+      </div>
+      <button type="submit" class="btn btn-primary">Edit Student Info</button>
+  </form>
+</div>
+{% endblock content %}
